@@ -121,11 +121,11 @@ class _TweaksScreenState extends State<TweaksScreen> {
   Widget _hyperAnimCard() {
     return Container(
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(color: Colors.white.withOpacity(0.03), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white.withOpacity(0.06))),
+      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.03), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white.withValues(alpha: 0.06))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Animation Level', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withOpacity(0.85))),
+          Text('Animation Level', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.85))),
           const SizedBox(height: 12),
           _sliderRow('V', _hyperV, (v) => setState(() => _hyperV = v)),
           _sliderRow('C', _hyperC, (v) => setState(() => _hyperC = v)),
@@ -133,7 +133,7 @@ class _TweaksScreenState extends State<TweaksScreen> {
           const SizedBox(height: 8),
           GestureDetector(
             onTap: () async { await DaemonClient.sendCommand('SET_ANIM_HYPER', 'v:$_hyperV,c:$_hyperC,g:$_hyperG'); },
-            child: Container(width: double.infinity, padding: const EdgeInsets.symmetric(vertical: 10), decoration: BoxDecoration(color: const Color(0xFFFF8C00).withOpacity(0.15), borderRadius: BorderRadius.circular(10), border: Border.all(color: const Color(0xFFFF8C00).withOpacity(0.35))), child: const Text('Apply', textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: Color(0xFFFF8C00), fontWeight: FontWeight.w700))),
+            child: Container(width: double.infinity, padding: const EdgeInsets.symmetric(vertical: 10), decoration: BoxDecoration(color: const Color(0xFFFF8C00).withValues(alpha: 0.15), borderRadius: BorderRadius.circular(10), border: Border.all(color: const Color(0xFFFF8C00).withValues(alpha: 0.35))), child: const Text('Apply', textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: Color(0xFFFF8C00), fontWeight: FontWeight.w700))),
           ),
         ],
       ),
@@ -143,11 +143,11 @@ class _TweaksScreenState extends State<TweaksScreen> {
   Widget _oplusAnimCard() {
     return Container(
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(color: Colors.white.withOpacity(0.03), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white.withOpacity(0.06))),
+      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.03), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white.withValues(alpha: 0.06))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Animation Level', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withOpacity(0.85))),
+          Text('Animation Level', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.85))),
           const SizedBox(height: 12),
           _sliderRow('Level', _oplusLevel, (v) async { setState(() => _oplusLevel = v); await SystemProps.set('persist.sys.oplus.anim_level', v.toString()); }, max: 5),
         ],
@@ -160,7 +160,7 @@ class _TweaksScreenState extends State<TweaksScreen> {
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
-          SizedBox(width: 60, child: Text(label, style: TextStyle(fontSize: 11, color: Colors.white.withOpacity(0.5)))),
+          SizedBox(width: 60, child: Text(label, style: TextStyle(fontSize: 11, color: Colors.white.withValues(alpha: 0.5)))),
           Expanded(
             child: SliderTheme(
               data: const SliderThemeData(trackHeight: 3, thumbShape: RoundSliderThumbShape(enabledThumbRadius: 7)),

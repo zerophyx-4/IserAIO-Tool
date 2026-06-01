@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.03),
+                    color: Colors.white.withValues(alpha: 0.03),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: widget.theme.accentBorder),
                   ),
@@ -76,15 +76,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 14),
                 ProfileSelector(activeProfile: widget.activeProfile, onChanged: (p) async { widget.onProfileChanged(p); await DaemonClient.setProfile(p); }),
                 const SizedBox(height: 14),
-                Text('Quick Toggles', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white.withOpacity(0.5))),
+                Text('Quick Toggles', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.5))),
                 const SizedBox(height: 8),
                 AnimatedContainer(
                   duration: const Duration(milliseconds: 250),
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    color: _flashMode.isNotEmpty ? const Color(0xFFFFD700).withOpacity(0.08) : Colors.white.withOpacity(0.03),
+                    color: _flashMode.isNotEmpty ? const Color(0xFFFFD700).withValues(alpha: 0.08) : Colors.white.withValues(alpha: 0.03),
                     borderRadius: BorderRadius.circular(14),
-                    border: Border.all(color: _flashMode.isNotEmpty ? const Color(0xFFFFD700).withOpacity(0.35) : Colors.white.withOpacity(0.06)),
+                    border: Border.all(color: _flashMode.isNotEmpty ? const Color(0xFFFFD700).withValues(alpha: 0.35) : Colors.white.withValues(alpha: 0.06)),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(children: [
                         const Text('Flashlight', style: TextStyle(fontSize: 18)),
                         const SizedBox(width: 8),
-                        Text('Flashlight', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withOpacity(0.8))),
+                        Text('Flashlight', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.8))),
                       ]),
                       const SizedBox(height: 10),
                       Row(children: [
@@ -119,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _statRow(String label, double value, double max, String unit, Color color) {
     return Row(
       children: [
-        SizedBox(width: 30, child: Text(label, style: TextStyle(fontSize: 10, color: Colors.white.withOpacity(0.35), letterSpacing: 1))),
+        SizedBox(width: 30, child: Text(label, style: TextStyle(fontSize: 10, color: Colors.white.withValues(alpha: 0.35), letterSpacing: 1))),
         Expanded(child: StatBar(value: value, max: max, color: color)),
         const SizedBox(width: 8),
         Text(unit, style: TextStyle(fontSize: 10, color: color)),
@@ -139,11 +139,11 @@ class _HomeScreenState extends State<HomeScreen> {
           duration: const Duration(milliseconds: 200),
           padding: const EdgeInsets.symmetric(vertical: 8),
           decoration: BoxDecoration(
-            color: isActive ? const Color(0xFFFFD700).withOpacity(0.18) : Colors.white.withOpacity(0.04),
+            color: isActive ? const Color(0xFFFFD700).withValues(alpha: 0.18) : Colors.white.withValues(alpha: 0.04),
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: isActive ? const Color(0xFFFFD700).withOpacity(0.45) : Colors.white.withOpacity(0.08)),
+            border: Border.all(color: isActive ? const Color(0xFFFFD700).withValues(alpha: 0.45) : Colors.white.withValues(alpha: 0.08)),
           ),
-          child: Text(label, textAlign: TextAlign.center, style: TextStyle(fontSize: 11, color: isActive ? const Color(0xFFFFD700) : Colors.white.withOpacity(0.4), fontWeight: isActive ? FontWeight.w700 : FontWeight.w400)),
+          child: Text(label, textAlign: TextAlign.center, style: TextStyle(fontSize: 11, color: isActive ? const Color(0xFFFFD700) : Colors.white.withValues(alpha: 0.4), fontWeight: isActive ? FontWeight.w700 : FontWeight.w400)),
         ),
       ),
     );

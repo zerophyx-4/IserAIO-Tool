@@ -15,9 +15,9 @@ class HSRTheme {
     required this.bannerEnd,
   });
 
-  Color get accentSoft => accent.withOpacity(0.15);
-  Color get accentBorder => accent.withOpacity(0.3);
-  Color get cardBg => accent.withOpacity(0.04);
+  Color get accentSoft => accent.withValues(alpha: 0.15);
+  Color get accentBorder => accent.withValues(alpha: 0.3);
+  Color get cardBg => accent.withValues(alpha: 0.04);
 }
 
 class AppTheme {

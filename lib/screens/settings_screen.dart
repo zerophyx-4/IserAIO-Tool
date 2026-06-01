@@ -23,7 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text('Settings', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.white)),
-              GestureDetector(onTap: () => Navigator.pop(context), child: Container(width: 32, height: 32, decoration: BoxDecoration(color: Colors.white.withOpacity(0.08), shape: BoxShape.circle), child: const Icon(Icons.close, size: 16, color: Colors.white54))),
+              GestureDetector(onTap: () => Navigator.pop(context), child: Container(width: 32, height: 32, decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.08), shape: BoxShape.circle), child: const Icon(Icons.close, size: 16, color: Colors.white54))),
             ],
           ),
         ),
@@ -40,11 +40,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     margin: const EdgeInsets.only(right: 6),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
-                      color: isActive ? const Color(0xFF00C2FF).withOpacity(0.15) : Colors.white.withOpacity(0.04),
+                      color: isActive ? const Color(0xFF00C2FF).withValues(alpha: 0.15) : Colors.white.withValues(alpha: 0.04),
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: isActive ? const Color(0xFF00C2FF).withOpacity(0.35) : Colors.white.withOpacity(0.08)),
+                      border: Border.all(color: isActive ? const Color(0xFF00C2FF).withValues(alpha: 0.35) : Colors.white.withValues(alpha: 0.08)),
                     ),
-                    child: Text(t[0].toUpperCase() + t.substring(1), textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: isActive ? const Color(0xFF00C2FF) : Colors.white.withOpacity(0.4), fontWeight: isActive ? FontWeight.w700 : FontWeight.w400)),
+                    child: Text(t[0].toUpperCase() + t.substring(1), textAlign: TextAlign.center, style: TextStyle(fontSize: 12, color: isActive ? const Color(0xFF00C2FF) : Colors.white.withValues(alpha: 0.4), fontWeight: isActive ? FontWeight.w700 : FontWeight.w400)),
                   ),
                 ),
               );
@@ -73,7 +73,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return GestureDetector(
           onTap: () => widget.onThemeChanged(id),
           child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(14), border: Border.all(color: isSelected ? th.accent : Colors.transparent, width: 2), boxShadow: isSelected ? [BoxShadow(color: th.accent.withOpacity(0.4), blurRadius: 16)] : []),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(14), border: Border.all(color: isSelected ? th.accent : Colors.transparent, width: 2), boxShadow: isSelected ? [BoxShadow(color: th.accent.withValues(alpha: 0.4), blurRadius: 16)] : []),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Column(
@@ -89,7 +89,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   Container(
                     color: th.bg, padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-                    child: Row(children: [th.accent, th.accentSoft, Colors.white.withOpacity(0.2)].map((c) => Container(margin: const EdgeInsets.only(right: 4), width: 12, height: 12, decoration: BoxDecoration(color: c, shape: BoxShape.circle))).toList()),
+                    child: Row(children: [th.accent, th.accentSoft, Colors.white.withValues(alpha: 0.2)].map((c) => Container(margin: const EdgeInsets.only(right: 4), width: 12, height: 12, decoration: BoxDecoration(color: c, shape: BoxShape.circle))).toList()),
                   ),
                 ],
               ),
@@ -114,15 +114,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Widget _aboutSection(String title, List<List<String>> items) {
     return Container(
-      decoration: BoxDecoration(color: Colors.white.withOpacity(0.03), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white.withOpacity(0.06))),
+      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.03), borderRadius: BorderRadius.circular(14), border: Border.all(color: Colors.white.withValues(alpha: 0.06))),
       child: Column(
         children: [
-          Container(padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8), decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.white.withOpacity(0.05)))), child: Row(children: [Text(title.toUpperCase(), style: TextStyle(fontSize: 10, color: Colors.white.withOpacity(0.3), fontWeight: FontWeight.w600, letterSpacing: 1))])),
+          Container(padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8), decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.05)))), child: Row(children: [Text(title.toUpperCase(), style: TextStyle(fontSize: 10, color: Colors.white.withValues(alpha: 0.3), fontWeight: FontWeight.w600, letterSpacing: 1))])),
           ...items.map((item) => Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
-            decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.white.withOpacity(0.03)))),
+            decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.white.withValues(alpha: 0.03)))),
             child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(item[0], style: TextStyle(fontSize: 12, color: Colors.white.withOpacity(0.4))),
+              Text(item[0], style: TextStyle(fontSize: 12, color: Colors.white.withValues(alpha: 0.4))),
               Text(item[1], style: const TextStyle(fontSize: 12, color: Color(0xBFFFFFFF), fontWeight: FontWeight.w600)),
             ]),
           )),

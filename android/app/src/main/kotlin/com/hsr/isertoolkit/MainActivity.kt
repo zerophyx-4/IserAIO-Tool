@@ -5,14 +5,12 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-
-    private val PROPS_CHANNEL  = "com.hsr.isertoolkit/props"
+    private val PROPS_CHANNEL = "com.hsr.isertoolkit/props"
     private val DAEMON_CHANNEL = "com.hsr.isertoolkit/daemon"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 
-        // Props channel
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, PROPS_CHANNEL)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
@@ -22,7 +20,7 @@ class MainActivity : FlutterActivity() {
                         result.success(SystemPropsHelper.get(key, default_))
                     }
                     "setprop" -> {
-                        val key   = call.argument<String>("key") ?: ""
+                        val key = call.argument<String>("key") ?: ""
                         val value = call.argument<String>("value") ?: ""
                         result.success(SystemPropsHelper.set(key, value))
                     }
@@ -30,15 +28,14 @@ class MainActivity : FlutterActivity() {
                 }
             }
 
-        // Daemon channel
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, DAEMON_CHANNEL)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
                     "sendCommand" -> {
                         val cmd = call.argument<String>("command") ?: ""
-                        val val_ = call.argument<String>("value") ?: ""
+                        val value = call.argument<String>("value") ?: ""
                         Thread {
-                            val resp = DaemonBridge.send("$cmd:$val_")
+                            val resp = DaemonBridge.send("$cmd:$value")
                             activity.runOnUiThread { result.success(resp) }
                         }.start()
                     }

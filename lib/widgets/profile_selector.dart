@@ -32,7 +32,7 @@ class ProfileSelector extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Performance Mode', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white.withOpacity(0.5))),
+            Text('Performance Mode', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white.withValues(alpha: 0.5))),
             Text('${current.icon} ${current.label}', style: TextStyle(fontSize: 11, color: current.color, fontWeight: FontWeight.w600)),
           ],
         ),
@@ -48,16 +48,16 @@ class ProfileSelector extends StatelessWidget {
                   margin: const EdgeInsets.only(right: 5),
                   padding: const EdgeInsets.symmetric(vertical: 9),
                   decoration: BoxDecoration(
-                    color: isActive ? p.color.withOpacity(0.18) : Colors.white.withOpacity(0.03),
+                    color: isActive ? p.color.withValues(alpha: 0.18) : Colors.white.withValues(alpha: 0.03),
                     borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: isActive ? p.color.withOpacity(0.7) : Colors.white.withOpacity(0.06), width: 1.5),
-                    boxShadow: isActive ? [BoxShadow(color: p.color.withOpacity(0.25), blurRadius: 14)] : [],
+                    border: Border.all(color: isActive ? p.color.withValues(alpha: 0.7) : Colors.white.withValues(alpha: 0.06), width: 1.5),
+                    boxShadow: isActive ? [BoxShadow(color: p.color.withValues(alpha: 0.25), blurRadius: 14)] : [],
                   ),
                   child: Column(
                     children: [
                       Text(p.icon, style: const TextStyle(fontSize: 15)),
                       const SizedBox(height: 3),
-                      Text(p.label, textAlign: TextAlign.center, style: TextStyle(fontSize: 8, color: isActive ? p.color : Colors.white.withOpacity(0.3), fontWeight: isActive ? FontWeight.w700 : FontWeight.w400)),
+                      Text(p.label, textAlign: TextAlign.center, style: TextStyle(fontSize: 8, color: isActive ? p.color : Colors.white.withValues(alpha: 0.3), fontWeight: isActive ? FontWeight.w700 : FontWeight.w400)),
                     ],
                   ),
                 ),
@@ -70,18 +70,18 @@ class ProfileSelector extends StatelessWidget {
           duration: const Duration(milliseconds: 300),
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: current.color.withOpacity(0.1),
+            color: current.color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: current.color.withOpacity(0.28)),
+            border: Border.all(color: current.color.withValues(alpha: 0.28)),
           ),
           child: Row(
             children: [
               Container(width: 5, height: 5, decoration: BoxDecoration(color: current.color, shape: BoxShape.circle)),
               const SizedBox(width: 8),
-              Expanded(child: Text(current.desc, style: TextStyle(fontSize: 10, color: Colors.white.withOpacity(0.4)))),
+              Expanded(child: Text(current.desc, style: TextStyle(fontSize: 10, color: Colors.white.withValues(alpha: 0.4)))),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                decoration: BoxDecoration(color: current.color.withOpacity(0.2), borderRadius: BorderRadius.circular(99)),
+                decoration: BoxDecoration(color: current.color.withValues(alpha: 0.2), borderRadius: BorderRadius.circular(99)),
                 child: Text('ACTIVE', style: TextStyle(fontSize: 9, color: current.color, fontWeight: FontWeight.w700)),
               ),
             ],

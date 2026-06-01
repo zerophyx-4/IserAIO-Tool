@@ -26,10 +26,10 @@ class ToggleCard extends StatelessWidget {
       duration: const Duration(milliseconds: 250),
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
-        color: value ? color.withOpacity(0.08) : Colors.white.withOpacity(0.03),
+        color: value ? color.withValues(alpha: 0.08) : Colors.white.withValues(alpha: 0.03),
         borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: value ? color.withOpacity(0.35) : Colors.white.withOpacity(0.06)),
-        boxShadow: value ? [BoxShadow(color: color.withOpacity(0.12), blurRadius: 16)] : [],
+        border: Border.all(color: value ? color.withValues(alpha: 0.35) : Colors.white.withValues(alpha: 0.06)),
+        boxShadow: value ? [BoxShadow(color: color.withValues(alpha: 0.12), blurRadius: 16)] : [],
       ),
       child: Row(
         children: [
@@ -44,7 +44,7 @@ class ToggleCard extends StatelessWidget {
                       const SizedBox(width: 6),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                        decoration: BoxDecoration(color: const Color(0xFFFF8C00).withOpacity(0.15), borderRadius: BorderRadius.circular(99)),
+                        decoration: BoxDecoration(color: const Color(0xFFFF8C00).withValues(alpha: 0.15), borderRadius: BorderRadius.circular(99)),
                         child: const Text('Restart', style: TextStyle(fontSize: 9, color: Color(0xFFFF8C00), fontWeight: FontWeight.w700)),
                       ),
                     ],
@@ -52,14 +52,14 @@ class ToggleCard extends StatelessWidget {
                       const SizedBox(width: 6),
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                        decoration: BoxDecoration(color: const Color(0xFFFF4D4D).withOpacity(0.15), borderRadius: BorderRadius.circular(99)),
+                        decoration: BoxDecoration(color: const Color(0xFFFF4D4D).withValues(alpha: 0.15), borderRadius: BorderRadius.circular(99)),
                         child: const Text('DEV', style: TextStyle(fontSize: 9, color: Color(0xFFFF4D4D), fontWeight: FontWeight.w700)),
                       ),
                     ],
                   ],
                 ),
                 const SizedBox(height: 2),
-                Text(sub, style: TextStyle(fontSize: 10, color: Colors.white.withOpacity(0.3))),
+                Text(sub, style: TextStyle(fontSize: 10, color: Colors.white.withValues(alpha: 0.3))),
               ],
             ),
           ),
@@ -70,10 +70,10 @@ class ToggleCard extends StatelessWidget {
               duration: const Duration(milliseconds: 250),
               width: 42, height: 24,
               decoration: BoxDecoration(
-                color: value ? color : Colors.white.withOpacity(0.1),
+                color: value ? color : Colors.white.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(99),
-                border: Border.all(color: value ? color.withOpacity(0.5) : Colors.white.withOpacity(0.1)),
-                boxShadow: value ? [BoxShadow(color: color.withOpacity(0.4), blurRadius: 8)] : [],
+                border: Border.all(color: value ? color.withValues(alpha: 0.5) : Colors.white.withValues(alpha: 0.1)),
+                boxShadow: value ? [BoxShadow(color: color.withValues(alpha: 0.4), blurRadius: 8)] : [],
               ),
               child: AnimatedAlign(
                 duration: const Duration(milliseconds: 250),
